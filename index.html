@@ -1,23 +1,89 @@
 <html>
 <head>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+
+
+	<style>
+		.redback{background-color: #FF0000 !important;}
+		.blueback{background-color: #0000FF !important;}
+		.greenback{background-color: #00FF00 !important;}
+	</style>
+
+	<script>
+		var users = [
+		{"name": "name1",
+		"img": "https://www.eitdigital.eu/typo3conf/ext/siteway/Resources/Public/G/Img/logoeit.png",
+		"OR": true, // oppotunity recognition
+		"HG": false, // Harvest and Growth
+		"MB": true, // Mobility
+		"WW":  false}, // Work in the wild (I dont know the real name)
+		{"name": "name2",
+		"img": "https://www.eitdigital.eu/typo3conf/ext/siteway/Resources/Public/G/Img/logoeit.png",
+		"OR": true, // oppotunity recognition
+		"HG": false, // Harvest and Growth
+		"MB": true, // Mobility
+		"WW":  false}, // Work in the wild (I dont know the real name)
+		]
+	</script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-static-top">
-  <div class="container">
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-    </ul>
-  </div>
-</nav>
+
+<div class="col-md-2 col-lg-2 col-sm-2 greenback" style="background-image:url('https://www.eitdigital.eu/typo3conf/ext/siteway/Resources/Public/G/Img/logoeit.png');"></div>
+
+	<div class="container-fluid"> <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-sm-12">
+<!-- 		<img src="https://www.eitdigital.eu/typo3conf/ext/siteway/Resources/Public/G/Img/logoeit.png" height="100px"/>
+ -->		EIT digital un-official website
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<a class="navbar-brand" href="#">Brand</a>
+
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+					<li><a href="#">Link</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<h4>PhD Candidates</h4>
+		<div class="col-md-12 col-lg-12 col-sm-12 " id="phdcand">
+		</div>
+
+		<script>
+
+// 			style="background-image:url('your-image-url');"
+
+
+// "style=\"background-image:url('"+users[i]["img"]+"');\""
+
+
+// "style='background-image:url('"+users[i]["img"]+"');' "
+
+			var phd_html="";
+			for(var i=0;i<users.length;i++){
+				phd_html += "<div class='row'>";
+				//phd_html += "<div class='col-md-2 col-lg-2 col-sm-2 greenback'>" + "<img src='"+users[i]["img"]+"'/>" + "</div>";
+				phd_html += "<div class='col-md-2 col-lg-2 col-sm-2 greenback'" + "style=\"background-image:url('"+users[i]["img"]+"');\"" + "></div>";
+				phd_html += "<div class='col-md-10 col-lg-2 col-sm-2 blueback'>" + users[i]["name"] + "</div>";
+				phd_html += "</div>";
+    			phd_html += "<hr>";
+    }
+
+    $("#phdcand").html(phd_html);
+</script>
+
+</div></div>
+
 
 </body>
 </html>
